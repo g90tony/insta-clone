@@ -1,0 +1,32 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>Moments</title>
+    {% endif %}
+    <!-- Load CSS and JavaScript  -->
+
+    {% bootstrap_css %} {% bootstrap_javascript jquery='full' %}
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="main-header">
+        <a href="/" class="header-title"></a
+        ><button class="logout">Logout</button>
+      </div>
+      <div class="content-container">
+        <!-- start of content block -->
+        {% block content %}
+        <!-- end of content block -->
+        {% endblock content %}
+      </div>
+      <div class="navbar"></div>
+    </div>
+  </body>
+</html>
