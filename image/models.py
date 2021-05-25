@@ -52,8 +52,8 @@ class Image(models.Model):
     
     
 class Comment(models.Model):
-    profile = models.ForeignKey(Profile)
-    created_on = models.DateField(auto_now_add = True)
+    profile = models.ForeignKey(Profile, on_delete=CASCADE)
+    created_on = models.DateField(auto_now_add=True)
     content = models.TextField()
     
     def save_comment(self):
