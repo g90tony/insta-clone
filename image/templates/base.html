@@ -1,4 +1,5 @@
 {% load bootstrap4 %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,22 +12,44 @@
     <title>Moments</title>
     {% endif %}
     <!-- Load CSS and JavaScript  -->
+{% block styles %}
+{% bootstrap_css %}
 
-    {% bootstrap_css %} {% bootstrap_javascript jquery='full' %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock styles %}
   </head>
   <body>
-    <div class="main-container">
+  <div class="main-container">
       <div class="main-header">
-        <a href="/" class="header-title"></a
-        ><button class="logout">Logout</button>
+        <a href="/" class="header-title">Moments</a
+        ><button class="logout-button">
+          Log out <i class="fas fa-sign-out-alt"></i>
+        </button>
       </div>
       <div class="content-container">
-        <!-- start of content block -->
+
         {% block content %}
-        <!-- end of content block -->
+          
         {% endblock content %}
+
       </div>
-      <div class="navbar"></div>
+      <div class="nav-container">
+        <div class="nav-items">
+          <a href="index.html" class="nav-item"><i class="fas fa-home"></i></a>
+          <a href="index.html" class="nav-item"
+            ><i class="far fa-plus-square"></i
+          ></a>
+          <a href="index.html" class="nav-item"><i class="fas fa-user"></i></a>
+        </div>
+      </div>
     </div>
+    </div>
+
+     {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{bootstrap_javascript}}
+
+    <!-- end of content block -->
+    {% endblock scripts %}
   </body>
 </html>

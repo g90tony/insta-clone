@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+<!-- load bootstrap -->
+{% load bootstrap4 %}
+<!-- load static files -->
+{% load static %}
+<!-- linked post stylesheet -->
+{% block style%}
+<link rel="stylesheet" href="{% static 'css/posts.css' %}" />
+{% endblock style %}
+
+<!-- start of content  -->
+{% block content %}
+<div class="feed-container">
+  {% if posts %} {% for post in posts %}
+  <div class="card post-item-container">
+    <div class="post-image-container">
+      <img src="{{post.image.url}}" alt="{{post.name}}" class="post-image" />
+    </div>
+    <div class="post-content-container">
+      <div class="post-header-row">
+        <div class="user-details">
+          <img
+            src="{{post.profile.profile_avatar}}"
+            alt="title"
+            class="user-avatar"
+          />
+          <p class="user-name">{{post.profile.user_name}}</p>
+        </div>
+        <p class="post-time">{{post.createdON | since}}</p>
+      </div>
+      <div class="post-caption-row">
+        <p class="post-caption">{{post.caption}}</p>
+      </div>
+      <div class="post-interaction-row">
+        <a class="post-interaction" href="/">
+          <i class="fas fa-comment"></i> {{post.comment.length}}</a
+        >
+        <a class="post-interaction" href="/">
+          <i class="fas fa-heart"></i> {{post.likes}}</a
+        >
+      </div>
+    </div>
+  </div>
+  {% endfor %} {% else %}
+  <p class="text-center-text-purple">There are no posts on your feed</p>
+  {% endif %}
+</div>
+<div class="profile-widget-container">
+  <div class="card profile-widget">
+    <div class="profile-avatar-container">
+      <img
+        src="https://images.pexels.com/photos/3460478/pexels-photo-3460478.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        class="profile-avatar"
+        alt=""
+      />
+    </div>
+
+    <div class="profile-details">
+      <p class="profile-username">{{user.profile_photo.url}}</p>
+      <div class="profile-row">
+        <div class="profile-row-item">
+          <p class="item-header">Posts</p>
+          <p class="item-content">{{user.posts}}</p>
+        </div>
+        <div class="profile-row-item">
+          <p class="item-header">Followers</p>
+          <p class="item-content">{{user.follower}}</p>
+        </div>
+        <div class="profile-row-item">
+          <p class="item-header">Following</p>
+          <p class="item-content">{{user.following}}</p>
+        </div>
+      </div>
+      <a href="/" class="profile-button">View Profile</a>
+    </div>
+  </div>
+</div>
+{% endblock content %}

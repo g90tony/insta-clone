@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+<!-- loading bootstrap -->
+{% load bootstrap %}
+
+<!-- load static files -->
+{% load static %}
+
+<!-- import custom stylesheets -->
+{% block styles %} {{super()}}
+<link rel="stylesheet" href="{% static 'css/view.css' %}" />
+{% endblock styles %}
+
+<!-- start of content -->
+{% block content %}
+<div class="card view-item-container">
+  <div class="post-image-container">
+    <img
+      src="{{post.image.url}}"
+      alt="{{post.image_name}}"
+      class="post-image"
+    />
+  </div>
+  <div class="post-content-container">
+    <div class="post-header-row">
+      <div class="user-details">
+        <img
+          src="{{post.profile.profile_photo.url}}"
+          alt="{{post.profile.user_name"
+          class="user-avatar"
+        />
+        <p class="user-name">{{post.profile.user_name}}</p>
+      </div>
+      <p class="post-time">{{post.created_at}}</p>
+    </div>
+    <div class="post-caption-row">
+      <p class="post-caption">{{post.image_caption}}</p>
+    </div>
+    <div class="post-interaction-row">
+      <a class="post-interaction" href="/">
+        <i class="fas fa-comment"></i> {{comments | length}}</a
+      >
+      <a class="post-interaction" href="/">
+        <i class="fas fa-heart"></i> {{post.likes}}</a
+      >
+    </div>
+
+    <div class="comments-container">
+      <p class="comments-header">Comments</p>
+      <div class="comments-feed-container">
+        {% if comments %} {% for comment in comments %}
+        <div class="comment-item">
+          <div class="image-container">
+            <img
+              src="{{comment.profile.profile_photo.url}}"
+              alt="commenter"
+              class="user-image"
+            />
+          </div>
+          <div class="comment-details-container">
+            <div class="details-row">
+              <p class="user-name">{{comment.profile.user_name}}</p>
+              <p class="comment-time">{{comment.created_on | since}}</p>
+            </div>
+
+            <div class="details-row">
+              <p class="comment-content">{{comment.content}}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %} {% else %}
+        <p class="text-center purple-text">There are no comments</p>
+        {% endif %}
+      </div>
+      <form action="" class="comment-form">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control form-control-sm comment-input"
+            name="comment"
+            placeholder="Write a comment..."
+          />
+          <div class="input-group-append">
+            <button class="comment-button" type="submit">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}
