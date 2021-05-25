@@ -1,0 +1,30 @@
+{% extends 'django_registration/base.html' %}
+
+<!-- loading bootstrap -->
+{% load bootstrap4 %}
+
+<!-- loading staticfiles -->
+{% load static %}
+
+<!-- start of content -->
+{% block content %}
+<div class="container">
+  <div class="row">
+    {% if form.errors %}
+    <p>Password or Username is incorrect</p>
+    {% endif %}
+
+    <div class="account-container">
+      <form class="card accounts-card" action="/accounts/login/">
+        {% csrf_token %} {% bootstrap_form form %}
+
+        <div class="form-group">
+          <input type="submit" class="button" value="Login" />
+        </div>
+
+        <input type="hidden" name="next" value="{{next}}" />
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}
