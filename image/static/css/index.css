@@ -88,3 +88,57 @@ body {
   color: #f5ab00;
   transition: 400ms ease-in-out;
 }
+
+.text-purple {
+  font-size: 15px;
+  width: 50vw;
+  text-align: center !important;
+  color: #68228b;
+  font-weight: 700;
+}
+
+.account-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  height: 90vh;
+  align-items: center;
+  margin: auto;
+}
+.accounts-card {
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+}
+
+.accounts-card label {
+  font-size: 18px;
+  font-weight: 700;
+  color: #68228b;
+}
+
+.accounts-card input {
+  border: #fff solid 1px;
+  background-color: #e3d8e9;
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 7px;
+}
+
+.accounts-card .button {
+  background-color: #68228b;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700 !important;
+  width: 100%;
+}
+
+.accounts-card .button:hover {
+  background-color: #f5ab00;
+  border: #f5ab00 solid 1px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: 500ms ease-in-out;
+}
