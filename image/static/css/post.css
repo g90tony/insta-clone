@@ -119,6 +119,7 @@
 
 .profile-widget-container {
   grid-area: widget;
+  max-width: 500px;
   margin-top: 30px;
 }
 
