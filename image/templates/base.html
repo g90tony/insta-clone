@@ -1,5 +1,4 @@
-{% load bootstrap4 %}
-{% load static %}
+{% load bootstrap4 %} {% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,14 +11,12 @@
     <title>Moments</title>
     {% endif %}
     <!-- Load CSS and JavaScript  -->
-{% block styles %}
-{% bootstrap_css %}
-
-<link rel="stylesheet" href="{% static 'css/index.css' %}">
-{% endblock styles %}
+    {% block styles %} {% bootstrap_css %} {{super}}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    {% endblock styles %}
   </head>
   <body>
-  <div class="main-container">
+    <div class="main-container">
       <div class="main-header">
         <a href="/" class="header-title">Moments</a
         ><button class="logout-button">
@@ -27,11 +24,7 @@
         </button>
       </div>
       <div class="content-container">
-
-        {% block content %}
-          
-        {% endblock content %}
-
+        {% block content %} {% endblock content %}
       </div>
       <div class="nav-container">
         <div class="nav-items">
@@ -43,9 +36,12 @@
         </div>
       </div>
     </div>
-    </div>
 
-     {% block scripts %}
+    {% block scripts %}
+    <script
+      src="https://kit.fontawesome.com/a872bbb5df.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     {{bootstrap_javascript}}
 
