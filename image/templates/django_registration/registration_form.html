@@ -1,4 +1,9 @@
 {% extends 'django_registration/base.html' %}
+<!-- loading bootstrap -->
+{% load bootstrap4 %}
+
+<!-- loading staticfiles -->
+{% load static %}
 
 <!-- start of block content -->
 {% block content %}
@@ -8,12 +13,12 @@
     <p>Some information might be incorrect</p>
     {% endif %}
 
-    <div class="card">
-      <form action="/accounts/register">
+    <div class="account-container">
+      <form class="card accounts-card" action="/accounts/register">
         {% csrf_token %} {% bootstrap_form form %}
 
         <div class="form-control">
-          <input type="submit" value="Sign Up" />
+          <input type="submit" class="button" value="Sign Up" />
         </div>
 
         <input type="hidden" name="next" value="{{next}}" />
