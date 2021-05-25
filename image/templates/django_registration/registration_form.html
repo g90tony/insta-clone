@@ -7,7 +7,7 @@
 
 <!-- start of block content -->
 {% block content %}
-<div class="container">
+<div class="container mt-3">
   <div class="row">
     {% if form.errors %}
     <p>Some information might be incorrect</p>
@@ -17,11 +17,24 @@
       <form class="card accounts-card" action="/accounts/register">
         {% csrf_token %} {% bootstrap_form form %}
 
-        <div class="form-control">
-          <input type="submit" class="button" value="Sign Up" />
-        </div>
+        <input type="submit" class="button" value="Sign Up" />
 
         <input type="hidden" name="next" value="{{next}}" />
+        <p
+          class="mx-auto mt-2"
+          style="
+            font-family: 'Century Gothic Bold';
+            text-align: center;
+            font-size: 13px;
+          "
+        >
+          If you already have an account,
+          <span
+            ><a style="color: #68228b; font-weight: 700" href="/accounts/login/"
+              >click here.</a
+            ></span
+          >
+        </p>
       </form>
     </div>
   </div>
