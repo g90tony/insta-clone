@@ -12,11 +12,11 @@
     <title>{{title}}</title>
     {% else %}
     <title>Moments</title>
-    {% endif %} {% block styles %}
+    {% endif %}
 
-    <!-- django bootstrap -->
-    {% bootstrap_css %}
-    <!-- end of style block -->
+    <!-- start of styles clock -->
+    {% block styles %} {% bootstrap_css %} {{super}}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
     {% endblock styles %}
   </head>
   <body>
