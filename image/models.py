@@ -6,6 +6,7 @@ from django.db.models.base import Model
 class Profile(models.Model):
     profile_photo = CloudinaryField('image', default = None)
     bio = models.TextField()
+    user_name = models.CharField()
     
     def save_profile(self):
         self.save()
