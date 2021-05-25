@@ -3,7 +3,9 @@
 {% load bootstrap4 %}
 
 <!-- loading static files -->
-{% load static %} {% block styles %}
+{% load static %}
+<!-- start of styles block -->
+{% block styles %} {{block.super}}
 <link rel="stylesheet" href="{% static 'css/upload.css' %}" />
 {% endblock styles %} {% block content %}
 <div class="upload-form-container">

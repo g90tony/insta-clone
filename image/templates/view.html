@@ -31,7 +31,7 @@
         />
         <p class="user-name">{{post.profile.user_name}}</p>
       </div>
-      <p class="post-time">{{post.created_at}}</p>
+      <p class="post-time">{{post.created_at | timestamp}}</p>
     </div>
     <div class="post-caption-row">
       <p class="post-caption">{{post.image_caption}}</p>

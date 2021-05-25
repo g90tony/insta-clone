@@ -19,20 +19,24 @@
     <div class="main-container">
       <div class="main-header">
         <a href="/" class="header-title">Moments</a
-        ><button class="logout-button">
+        ><a href="/logout" class="logout-button">
           Log out <i class="fas fa-sign-out-alt"></i>
-        </button>
+        </a>
       </div>
       <div class="content-container">
         {% block content %} {% endblock content %}
       </div>
       <div class="nav-container">
         <div class="nav-items">
-          <a href="index.html" class="nav-item"><i class="fas fa-home"></i></a>
-          <a href="index.html" class="nav-item"
+          <a href="{% url 'Dashboard' %}" class="nav-item"
+            ><i class="fas fa-home"></i
+          ></a>
+          <a href="{% url 'Upload' %}" class="nav-item"
             ><i class="far fa-plus-square"></i
           ></a>
-          <a href="index.html" class="nav-item"><i class="fas fa-user"></i></a>
+          <a href="{% url 'Profile' %}" class="nav-item"
+            ><i class="fas fa-user"></i
+          ></a>
         </div>
       </div>
     </div>

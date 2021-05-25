@@ -15,7 +15,7 @@
     {% endif %}
 
     <div class="account-container">
-      <form class="card accounts-card" action="/accounts/login/">
+      <form class="card accounts-card" method="POST" action="/accounts/login/">
         {% csrf_token %} {% bootstrap_form form %}
 
         <div class="form-group">

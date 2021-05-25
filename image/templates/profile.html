@@ -3,8 +3,8 @@
 {% load bootstrap4 %}
 
 <!-- load static files -->
-{% load static %} {% block styles %} {{super()}}
-<link rel="stylesheet" href="{% static 'css/profile' %}" />
+{% load static %} {% block styles %} {{block.super}}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}" />
 {% endblock styles %} {% block content %}
 <div class="profile-container">
   <div class="user-details-container">

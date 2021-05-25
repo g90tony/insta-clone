@@ -14,12 +14,17 @@
     {% endif %}
 
     <div class="account-container">
-      <form class="card accounts-card" action="/accounts/register">
+      <form
+        class="card accounts-card"
+        action="/accounts/register/"
+        method="POST"
+      >
         {% csrf_token %} {% bootstrap_form form %}
 
         <input type="submit" class="button" value="Sign Up" />
 
         <input type="hidden" name="next" value="{{next}}" />
+
         <p
           class="mx-auto mt-2"
           style="
