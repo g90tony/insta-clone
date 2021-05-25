@@ -49,3 +49,15 @@ class Image(models.Model):
         
     def __str__(self):
         return self.name
+    
+    
+class Comment(models.Model):
+    profile = models.ForeignKey(Profile)
+    created_on = models.DateField(auto_now_add = True)
+    content = models.TextField()
+    
+    def save_comment(self):
+        self.save()
+        
+    def __str__(self):
+        return self.profile.user_name
