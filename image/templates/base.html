@@ -17,13 +17,28 @@
   </head>
   <body>
     <div class="main-container">
-      <div class="main-header">
-        <a href="/" class="header-title">Moments</a
-        ><a href="/logout" class="logout-button">
+      <div class="main-header w-100">
+        <a href="/" class="header-title">Moments</a>
+        <form
+          class="form-inline w-auto mx-auto"
+          role="search"
+          action="{% url 'Search' %}"
+        >
+          {% csrf_token %}
+          <div class="input-group my-0">
+            <input
+              type="text"
+              class="form-control search-input"
+              name="search"
+              placeholder="Search for user..."
+            />
+          </div>
+        </form>
+        <a href="/logout" class="logout-button">
           Log out <i class="fas fa-sign-out-alt"></i>
         </a>
       </div>
-      <div class="content-container">
+      <div class="content-container container">
         {% block content %} {% endblock content %}
       </div>
       <div class="nav-container">
@@ -34,9 +49,13 @@
           <a href="{% url 'Upload' %}" class="nav-item"
             ><i class="far fa-plus-square"></i
           ></a>
-          <a href="{% url 'Profile' %}" class="nav-item"
-            ><i class="fas fa-user"></i
-          ></a>
+          <a href="{% url 'Profile' %}" class="nav-item">
+            <img
+              class="nav-img"
+              src="{{profile.profile_photo.url}}"
+              alt="{{post.profile.user_name}}"
+            />
+          </a>
         </div>
       </div>
     </div>

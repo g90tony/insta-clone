@@ -9,30 +9,14 @@
 <link rel="stylesheet" href="{% static 'css/upload.css' %}" />
 {% endblock styles %} {% block content %}
 <div class="upload-form-container">
-  <form class="card upload-form">
-    <div class="form-group upload-field-group">
-      <label for="image">Upload Image</label>
-      <input
-        type="file"
-        name="image"
-        id="image"
-        class="form-control upload-input"
-        placeholder="Select image to upload..."
-      />
-    </div>
-    <div class="form-group upload-field-group">
-      <label for="caption">Image Caption</label>
-      <textarea
-        name="caption"
-        id="cation"
-        rows="5"
-        class="form-control upload-input"
-        placeholder="Type your caption here..."
-      ></textarea>
-    </div>
-    <div class="upload-button-container">
-      <a href="/" class="upload-button">Post</a>
-    </div>
+  <form
+    class="card upload-form accounts-card"
+    enctype="multipart/form-data"
+    method="POST"
+    action="{% url 'Upload' %}"
+  >
+    {% csrf_token %} {% bootstrap_form form %}
+    <button type="submit" class="upload-button">Post Picture</button>
   </form>
 </div>
 {% endblock content %}

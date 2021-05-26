@@ -9,33 +9,33 @@
 <div class="profile-container">
   <div class="user-details-container">
     <div class="avatar-container">
-      <img
-        src="https://images.pexels.com/photos/3460478/pexels-photo-3460478.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500 "
-        alt=""
-        class="user-avatar"
-      />
+      <img src="{{profile.profile_photo.url}}" alt="" class="user-avatar" />
     </div>
     <div class="details-container">
       <div class="details-row">
         <div class="details-row-item">
-          <p class="user-name">{{user.username}}</p>
-          <p class="user-joined">{{profile.joined}}</p>
+          <p class="user-name">{{profile.user_name}}</p>
+          <p class="user-joined">{{profile.joined | date:" Y "}}</p>
         </div>
         <div class="details-row-item">
           <p class="user-detail-item-header">Posts</p>
-          <p class="user-detail-item-subheader">{{posts_count}}</p>
+          <p class="user-detail-item-subheader">{{posts | length}}</p>
         </div>
         <div class="details-row-item">
           <p class="user-detail-item-header">Followers</p>
-          <p class="user-detail-item-subheader">{{profile.followers}}</p>
+          <p class="user-detail-item-subheader">
+            {{profile.followers | length}}
+          </p>
         </div>
         <div class="details-row-item">
           <p class="user-detail-item-header">Following</p>
-          <p class="user-detail-item-subheader">{{profile.following}}</p>
+          <p class="user-detail-item-subheader">
+            {{profile.following | length}}
+          </p>
         </div>
       </div>
       <div class="details-row">
-        <p class="user-bio">{{profile.user_bio}}</p>
+        <p class="user-bio">{{profile.bio}}</p>
       </div>
     </div>
   </div>

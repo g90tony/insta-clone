@@ -11,29 +11,36 @@
 <!-- start of content  -->
 {% block content %}
 <div class="feed-container">
-  {% if posts %} {% for post in posts %}
+  {% if all_posts %}
+  <!-- start of for loop -->
+  {% for post in all_posts %}
   <div class="card post-item-container">
     <div class="post-image-container">
-      <img src="{{post.image.url}}" alt="{{post.name}}" class="post-image" />
+      <a class="view-link" href="/post/view/{{post.id}}">
+        <img
+          src="{{post.image.url}}"
+          alt="{{post.image_name}}"
+          class="post-image"
+      /></a>
     </div>
     <div class="post-content-container">
       <div class="post-header-row">
         <div class="user-details">
           <img
-            src="{{post.profile.profile_avatar}}"
-            alt="title"
+            src="{{post.profile_id.profile_photo.url}}"
+            alt="{{post.profile_id.user_name}}"
             class="user-avatar"
           />
-          <p class="user-name">{{post.profile.user_name}}</p>
+          <p class="user-name">{{post.profile_id.user_name}}</p>
         </div>
-        <p class="post-time">{{post.created_at | timesince}}</p>
+        <p class="post-time">{{post.created_at | timesince}} ago</p>
       </div>
       <div class="post-caption-row">
-        <p class="post-caption">{{post.caption}}</p>
+        <p class="post-caption">{{post.image_caption}}</p>
       </div>
       <div class="post-interaction-row">
         <a class="post-interaction" href="/">
-          <i class="fas fa-comment"></i> {{post.comment.length}}</a
+          <i class="fas fa-comment"></i> {{comments.length}}</a
         >
         <a class="post-interaction" href="/">
           <i class="fas fa-heart"></i> {{post.likes}}</a
@@ -48,30 +55,26 @@
 <div class="profile-widget-container">
   <div class="card profile-widget">
     <div class="profile-avatar-container">
-      <img
-        src="{{post.profile.profile_photo.url}}"
-        class="profile-avatar"
-        alt=""
-      />
+      <img src="{{profile.profile_photo.url}}" class="profile-avatar" alt="" />
     </div>
 
     <div class="profile-details">
-      <p class="profile-username">{{post.profile.profile_photo.url}}</p>
+      <p class="profile-username">{{profile.user_name}}</p>
       <div class="profile-row">
         <div class="profile-row-item">
           <p class="item-header">Posts</p>
-          <p class="item-content">{{user.posts}}</p>
+          <p class="item-content">{{post_count}}</p>
         </div>
         <div class="profile-row-item">
           <p class="item-header">Followers</p>
-          <p class="item-content">{{user.follower}}</p>
+          <p class="item-content">{{profile.follower | length}}</p>
         </div>
         <div class="profile-row-item">
           <p class="item-header">Following</p>
-          <p class="item-content">{{user.following}}</p>
+          <p class="item-content">{{profile.following | length}}</p>
         </div>
       </div>
-      <a href="/" class="profile-button">View Profile</a>
+      <a href="/profile/" class="profile-button">View Profile</a>
     </div>
   </div>
 </div>

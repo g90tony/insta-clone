@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 <!-- loading bootstrap -->
-{% load bootstrap %}
+{% load bootstrap4 %}
 
 <!-- load static files -->
 {% load static %}
 
 <!-- import custom stylesheets -->
-{% block styles %} {{super()}}
+{% block styles %} {{block.super}}
 <link rel="stylesheet" href="{% static 'css/view.css' %}" />
 {% endblock styles %}
 
@@ -25,13 +25,13 @@
     <div class="post-header-row">
       <div class="user-details">
         <img
-          src="{{post.profile.profile_photo.url}}"
+          src="{{post.profile_id.profile_photo.url}}"
           alt="{{post.profile.user_name"
           class="user-avatar"
         />
         <p class="user-name">{{post.profile.user_name}}</p>
       </div>
-      <p class="post-time">{{post.created_at | timestamp}}</p>
+      <p class="post-time">{{post.created_at | timesince}}</p>
     </div>
     <div class="post-caption-row">
       <p class="post-caption">{{post.image_caption}}</p>
@@ -60,7 +60,7 @@
           <div class="comment-details-container">
             <div class="details-row">
               <p class="user-name">{{comment.profile.user_name}}</p>
-              <p class="comment-time">{{comment.created_on | since}}</p>
+              <p class="comment-time">{{comment.created_on | timesince}}</p>
             </div>
 
             <div class="details-row">
