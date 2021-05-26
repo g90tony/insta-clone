@@ -1,0 +1,166 @@
+.search-results-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 0.5fr;
+  grid-template-areas:
+    "header"
+    "results";
+  width: 100%;
+}
+
+.search-header-container {
+  grid-area: header;
+  width: 100%;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.search-header {
+  font-size: 24px;
+  color: #68228b;
+  font-weight: 700;
+}
+
+.search-subheader {
+  font-size: 18px;
+  color: #f5ab00;
+  font-weight: 700;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 30px;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile-widget-container {
+  grid-area: widget;
+  max-width: 500px;
+  margin-top: 30px;
+}
+
+.profile-widget {
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.profile-avatar-container {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  height: fit-content;
+  margin: auto;
+}
+
+.profile-avatar {
+  width: 80%;
+  object-fit: cover;
+  border-radius: 70%;
+}
+
+.profile-details {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-username {
+  font-size: 18px;
+  font-weight: 700;
+  color: #68228b;
+  margin: auto;
+}
+
+.profile-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.profile-row-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.item-header {
+  font-weight: 700;
+  color: #68228b;
+  margin-bottom: 0;
+}
+
+.item-content {
+  color: #f5ab00;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.profile-button {
+  border: solid 1px #68228b;
+  background-color: #68228b;
+  padding: 7px;
+  text-align: center;
+  margin: auto;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  width: 100%;
+}
+
+.profile-button:hover {
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 1px #f5ab00;
+  background-color: #f5ab00;
+  transition: 500ms ease-in-out;
+}
+
+@media screen and (max-width: 576px) {
+  .search-header {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .search-subheader {
+    font-size: 13px;
+  }
+
+  .search-header-container {
+    padding: 10px;
+    margin-top: 30px;
+  }
+
+  .search-results {
+    margin: 0;
+  }
+  .profile-widget-container {
+    width: 100%;
+    margin: 10px auto;
+  }
+  .profile-avatar-container {
+    display: none;
+  }
+  .profile-avatar {
+    width: 60%;
+  }
+  .profile-username {
+    font-size: 16px;
+  }
+  .item-header {
+    font-size: 16px;
+  }
+  .item-content {
+    font-size: 13px;
+  }
+}
