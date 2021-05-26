@@ -48,10 +48,11 @@ class Image(models.Model):
         self.objects.filter(id = image_id).update(image_caption = new_caption)
         
     def __str__(self):
-        return self.name
+        return self.image_name
     
     
 class Comment(models.Model):
+    image = models.ForeignKey(Image, on_delete=CASCADE)
     profile = models.ForeignKey(Profile, on_delete=CASCADE)
     created_on = models.DateField(auto_now_add=True)
     content = models.TextField()
@@ -60,4 +61,4 @@ class Comment(models.Model):
         self.save()
         
     def __str__(self):
-        return self.profile.user_name
+        return self.create_on
