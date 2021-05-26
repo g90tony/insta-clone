@@ -53,3 +53,10 @@
   color: #ffffff;
   transition: 500ms ease-in-out;
 }
+
+@media screen and (max-width: 576px) {
+  .upload-form {
+    width: 100%;
+    padding: 10px;
+  }
+}
