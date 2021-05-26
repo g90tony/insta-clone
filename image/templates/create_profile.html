@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+<!-- loading bootstrap -->
+{% load bootstrap4 %}
+
+<!-- loading static files -->
+{% load static %}
+<!-- start of styles block -->
+{% block styles %} {{block.super}}
+<link rel="stylesheet" href="{% static 'css/upload.css' %}" />
+{% endblock styles %}
+
+<!-- start of content block -->
+{% block content %}
+<div class="upload-form-container">
+  <form
+    class="card upload-form accounts-card"
+    enctype="multipart/form-data"
+    method="POST"
+    action="{% url 'Create Profile' %}"
+  >
+    {% csrf_token %} {% bootstrap_form form %}
+    <input type="submit" value="Update Profile" class="upload-button" />
+  </form>
+</div>
+{% endblock content %}
