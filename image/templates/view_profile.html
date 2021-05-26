@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+<!-- load bootstrap -->
+{% load bootstrap4 %}
+
+<!-- load static files -->
+{% load static %} {% block styles %} {{block.super}}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+{% endblock styles %} {% block content %}
+<div class="profile-container">
+  <div class="user-details-container">
+    <div class="avatar-container">
+      <img
+        src="{{user_profile.profile_photo.url}}"
+        alt=""
+        class="user-avatar"
+      />
+    </div>
+    <div class="details-container">
+      <div class="details-row">
+        <div class="details-row-item">
+          <p class="user-name">{{user_profile.user_name}}</p>
+          <p class="user-joined">{{user_profile.joined | date:" Y "}}</p>
+        </div>
+        <div class="details-row-item">
+          <p class="user-detail-item-header">Posts</p>
+          <p class="user-detail-item-subheader">{{posts | length}}</p>
+        </div>
+        <div class="details-row-item">
+          <p class="user-detail-item-header">Followers</p>
+          <p class="user-detail-item-subheader">
+            {{user_profile.followers | length}}
+          </p>
+        </div>
+        <div class="details-row-item">
+          <p class="user-detail-item-header">Following</p>
+          <p class="user-detail-item-subheader">
+            {{user_profile.following | length}}
+          </p>
+        </div>
+      </div>
+      <div class="details-row">
+        <p class="user-bio">{{user_profile.bio}}</p>
+      </div>
+      <div class="details-row">
+        <a href="/profile/follow/{{user_profile.id}}" class="button"
+          >Follow User</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="posts-grid-container">
+    {% if posts %} {% for post in posts %}
+    <a href="/post/{{post.id}}" class="post-grid-link">
+      <img src="{{post.image.url}}" alt="" class="posts-grid-item"
+    /></a>
+    {% endfor %} {% else %}
+    <p class="text-center purple text">You have no posts uploaded.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock content %}
