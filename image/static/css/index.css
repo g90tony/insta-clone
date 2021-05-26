@@ -1,5 +1,6 @@
 body {
   background-color: #e3d8e9;
+  width: 100vw;
 }
 
 .main-container {
@@ -12,18 +13,20 @@ body {
     "nav";
 
   width: 100%;
-  padding: 10px 50px;
   height: 100vh;
 }
 
 .main-header {
   display: flex;
   flex-flow: row wrap;
+  background-color: #ffffff;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   height: fit-content;
   grid-area: header;
+  padding: 10px 30px;
+  margin: 0 auto;
 }
 
 .header-title {
@@ -41,8 +44,8 @@ body {
 
 .logout-button {
   background-color: transparent;
-  font-size: 18px;
-  border: #e3d8e9 solid 1px;
+  font-size: 16px;
+  border: #ffffff solid 1px;
   font-weight: 700;
   color: #68228b;
 }
@@ -54,6 +57,7 @@ body {
 
 .content-container {
   grid-area: content;
+  padding: 10px 20px !important;
 }
 
 .nav-container {
@@ -74,7 +78,7 @@ body {
   border-radius: 10px;
   background-color: #ffffff;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   box-shadow: 0 0 100px 1px #68228ba6;
   justify-content: space-evenly;
 }
@@ -82,6 +86,13 @@ body {
 .nav-item {
   color: #68228b;
   font-size: 28px;
+}
+
+.nav-img {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 100%;
+  object-fit: cover;
 }
 
 .nav-item:hover {
@@ -125,6 +136,16 @@ body {
   border-radius: 10px;
   font-size: 14px;
   padding: 7px;
+  color: #f5ab00;
+}
+.accounts-card textarea {
+  border: #fff solid 1px;
+  background-color: #e3d8e9;
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 7px;
+  height: 60px;
+  color: #f5ab00;
 }
 
 .accounts-card .button {
@@ -141,4 +162,50 @@ body {
   text-decoration: none;
   color: #ffffff;
   transition: 500ms ease-in-out;
+}
+
+.search-input {
+  font-size: 13px;
+  padding: 7px;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  border: #68228b 1px solid;
+}
+
+.search-button {
+  background-color: #fff;
+  border: 0px transparent solid;
+  height: 32px;
+  margin: auto 0;
+  border-radius: 0 7px 7px 0;
+}
+
+.search-button i {
+  font-size: 13px;
+  color: #68228b;
+}
+
+.button {
+  background-color: #68228b;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700 !important;
+  padding: 7px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 10px;
+  width: 100%;
+}
+.button:hover {
+  background-color: #f5ab00;
+  border: #f5ab00 solid 1px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: 500ms ease-in-out;
+}
+
+@media screen and (max-width: 576px) {
+  .nav-items {
+    width: 80%;
+  }
 }
