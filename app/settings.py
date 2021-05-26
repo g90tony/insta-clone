@@ -148,7 +148,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 cloudinary.config(
     cloud_name = config('CLOUDINARY_CLOUD_NAME'),
     api_key = config('CLOUDINARY_API_KEY'),
-    api_secret_key = config('CLOUDINARY_SECRET_KEY')
+    api_secret = config('CLOUDINARY_SECRET_KEY')
 )
 
 LOGIN_REDIRECT_URL = '/'
